@@ -1,107 +1,109 @@
-// Charger le header et le footer sur toutes les pages
+// Mettre en surbrillance le menu actif
 document.addEventListener('DOMContentLoaded', function() {
-    // Charger le header
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header-placeholder').innerHTML = data;
-            initializeMenus();
-            highlightActiveMenu();
-        });
+    highlightActiveMenu();
+    initializeMenus();
+    initializeAnimations();
+});
 
-    // Charger le footer
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
-        });
-
-    // Initialiser les fonctionnalités après le chargement
-    function initializeMenus() {
-        // Ouverture automatique des sous-menus au survol (desktop uniquement)
-        const menuItems = document.querySelectorAll('.navbar-center .menu-horizontal > li:has(details)');
+function highlightActiveMenu() {
+    // Obtenir le nom de la page actuelle
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Sélectionner tous les liens du menu
+    const menuLinks = document.querySelectorAll('.navbar .menu a[href]');
+    
+    menuLinks.forEach(link => {
+        const href = link.getAttribute('href');
         
-        menuItems.forEach(item => {
-            const details = item.querySelector('details');
+        // Vérifier si le lien correspond à la page actuelle
+        if (href === currentPage) {
+            link.classList.add('active');
             
-            // Ouvrir au survol
-            item.addEventListener('mouseenter', function() {
-                if (window.innerWidth >= 1024) { // lg breakpoint
-                    details.setAttribute('open', '');
+            // Si le lien est dans un sous-menu, marquer aussi le parent
+            const parentDetails = link.closest('details');
+            if (parentDetails) {
+                const parentSummary = parentDetails.querySelector('summary');
+                if (parentSummary) {
+                    parentSummary.classList.add('active');
                 }
-            });
-            
-            // Fermer quand on quitte
-            item.addEventListener('mouseleave', function() {
-                if (window.innerWidth >= 1024) {
-                    details.removeAttribute('open');
-                }
-            });
-        });
-
-        // Animation smooth scroll pour les ancres
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && href.length > 1) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
-        });
-
-        // Effet de recherche avec feedback visuel
-        const searchInput = document.querySelector('input[placeholder="Rechercher..."]');
-        if (searchInput) {
-            searchInput.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'scale(1.05)';
-                this.parentElement.style.transition = 'transform 0.3s ease';
-            });
-            
-            searchInput.addEventListener('blur', function() {
-                this.parentElement.style.transform = 'scale(1)';
-            });
+            }
         }
+    });
+}
 
-        // Animation du logo au scroll
-        let lastScroll = 0;
-        const navbar = document.querySelector('.navbar');
+function initializeMenus() {
+    // Ouverture automatique des sous-menus au survol (desktop uniquement)
+    const menuItems = document.querySelectorAll('.navbar-center .menu-horizontal > li:has(details)');
+    
+    menuItems.forEach(item => {
+        const details = item.querySelector('details');
         
-        window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                // Scroll vers le bas
-                navbar.style.transform = 'translateY(-100%)';
-            } else {
-                // Scroll vers le haut
-                navbar.style.transform = 'translateY(0)';
+        // Ouvrir au survol
+        item.addEventListener('mouseenter', function() {
+            if (window.innerWidth >= 1024) { // lg breakpoint
+                details.setAttribute('open', '');
             }
-            
-            navbar.style.transition = 'transform 0.3s ease';
-            lastScroll = currentScroll;
+        });
+        
+        // Fermer quand on quitte
+        item.addEventListener('mouseleave', function() {
+            if (window.innerWidth >= 1024) {
+                details.removeAttribute('open');
+            }
+        });
+    });
+
+    // Animation smooth scroll pour les ancres
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && href.length > 1) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+
+    // Effet de recherche avec feedback visuel
+    const searchInput = document.querySelector('input[placeholder="Rechercher..."]');
+    if (searchInput) {
+        searchInput.addEventListener('focus', function() {
+            this.parentElement.style.transform = 'scale(1.05)';
+            this.parentElement.style.transition = 'transform 0.3s ease';
+        });
+        
+        searchInput.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'scale(1)';
         });
     }
 
-    // Mettre en surbrillance le menu actif
-    function highlightActiveMenu() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const menuLinks = document.querySelectorAll('.navbar a[href]');
+    // Animation du logo au scroll
+    let lastScroll = 0;
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
         
-        menuLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === currentPage) {
-                link.classList.add('active');
-            }
-        });
-    }
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            // Scroll vers le bas
+            navbar.style.transform = 'translateY(-100%)';
+        } else {
+            // Scroll vers le haut
+            navbar.style.transform = 'translateY(0)';
+        }
+        
+        navbar.style.transition = 'transform 0.3s ease';
+        lastScroll = currentScroll;
+    });
+}
 
+function initializeAnimations() {
     // Animation des cards produits au scroll
     const observerOptions = {
         threshold: 0.1,
@@ -211,4 +213,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, 1000);
-});
+}

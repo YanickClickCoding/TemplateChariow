@@ -124,6 +124,20 @@ body {
     border-bottom: 2px solid #e74c3c;
 }
 
+/* Active menu state for DaisyUI navbar */
+.navbar .menu a.active,
+.navbar .menu a.active:hover {
+    background-color: hsl(var(--p) / 0.1);
+    color: hsl(var(--p));
+    font-weight: 600;
+}
+
+.navbar .menu details summary.active {
+    background-color: hsl(var(--p) / 0.1);
+    color: hsl(var(--p));
+    font-weight: 600;
+}
+
 /* Hero Banner */
 .hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
