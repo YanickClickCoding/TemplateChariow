@@ -151,6 +151,19 @@
         </div>
     </div>
 
+    <!-- Quick Navigation -->
+    <div class="bg-base-200 py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#chemises" class="btn btn-outline btn-sm">Chemises</a>
+                <a href="#t-shirts" class="btn btn-outline btn-sm">T-shirts & Polos</a>
+                <a href="#pantalons" class="btn btn-outline btn-sm">Pantalons & Jeans</a>
+                <a href="#vestes" class="btn btn-outline btn-sm">Vestes & Blousons</a>
+                <a href="#pulls" class="btn btn-outline btn-sm">Pulls & Sweats</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Products Section -->
     <div class="container mx-auto px-4 py-12">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -253,8 +266,10 @@
                     </select>
                 </div>
 
-                <!-- Product Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Section Chemises -->
+                <div id="chemises" class="mb-12 scroll-mt-24">
+                    <h2 class="text-3xl font-bold mb-6">Chemises</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
                         <figure class="relative h-64">
                             <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=300&fit=crop" alt="Chemise casual" class="w-full h-full object-cover" />
@@ -274,6 +289,13 @@
                             <button class="btn btn-primary btn-block">Ajouter au panier</button>
                         </div>
                     </div>
+                </div>
+                </div>
+
+                <!-- Section Pantalons -->
+                <div id="pantalons" class="mb-12 scroll-mt-24">
+                    <h2 class="text-3xl font-bold mb-6">Pantalons & Jeans</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                     <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
                         <figure class="relative h-64">
@@ -300,6 +322,36 @@
 
                     <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
                         <figure class="relative h-64">
+                            <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&h=300&fit=crop" alt="Chino beige" class="w-full h-full object-cover" />
+                            <div class="badge badge-error absolute top-4 right-4">-15%</div>
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Chino beige</h2>
+                            <div class="rating rating-sm">
+                                <input type="radio" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" class="mask mask-star-2 bg-orange-400" checked />
+                            </div>
+                            <p class="text-sm text-gray-500">(72 avis)</p>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm line-through text-gray-400">59,99€</span>
+                                <span class="text-2xl font-bold text-error">50,99€</span>
+                            </div>
+                            <button class="btn btn-primary btn-block">Ajouter au panier</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Section Vestes -->
+                <div id="vestes" class="mb-12 scroll-mt-24">
+                    <h2 class="text-3xl font-bold mb-6">Vestes & Blousons</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
+                        <figure class="relative h-64">
                             <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=300&fit=crop" alt="Veste en cuir" class="w-full h-full object-cover" />
                         </figure>
                         <div class="card-body">
@@ -316,6 +368,32 @@
                             <button class="btn btn-primary btn-block">Ajouter au panier</button>
                         </div>
                     </div>
+
+                    <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
+                        <figure class="relative h-64">
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=300&fit=crop" alt="Blouson aviateur" class="w-full h-full object-cover" />
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Blouson aviateur</h2>
+                            <div class="rating rating-sm">
+                                <input type="radio" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" class="mask mask-star-2 bg-gray-300" />
+                            </div>
+                            <p class="text-sm text-gray-500">(38 avis)</p>
+                            <p class="text-2xl font-bold text-primary">149,99€</p>
+                            <button class="btn btn-primary btn-block">Ajouter au panier</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Section T-shirts -->
+                <div id="t-shirts" class="mb-12 scroll-mt-24">
+                    <h2 class="text-3xl font-bold mb-6">T-shirts & Polos</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                     <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
                         <figure class="relative h-64">
@@ -336,6 +414,13 @@
                             <button class="btn btn-primary btn-block">Ajouter au panier</button>
                         </div>
                     </div>
+                </div>
+                </div>
+
+                <!-- Section Pulls -->
+                <div id="pulls" class="mb-12 scroll-mt-24">
+                    <h2 class="text-3xl font-bold mb-6">Pulls & Sweats</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                     <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
                         <figure class="relative h-64">
@@ -378,49 +463,10 @@
                             <button class="btn btn-primary btn-block">Ajouter au panier</button>
                         </div>
                     </div>
-
-                    <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                        <figure class="relative h-64">
-                            <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&h=300&fit=crop" alt="Chino beige" class="w-full h-full object-cover" />
-                            <div class="badge badge-error absolute top-4 right-4">-15%</div>
-                        </figure>
-                        <div class="card-body">
-                            <h2 class="card-title">Chino beige</h2>
-                            <div class="rating rating-sm">
-                                <input type="radio" class="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" class="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" class="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" class="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" class="mask mask-star-2 bg-orange-400" checked />
-                            </div>
-                            <p class="text-sm text-gray-500">(72 avis)</p>
-                            <div class="flex items-center gap-2">
-                                <span class="text-sm line-through text-gray-400">59,99€</span>
-                                <span class="text-2xl font-bold text-error">50,99€</span>
-                            </div>
-                            <button class="btn btn-primary btn-block">Ajouter au panier</button>
-                        </div>
-                    </div>
-
-                    <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                        <figure class="relative h-64">
-                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=300&fit=crop" alt="Blouson aviateur" class="w-full h-full object-cover" />
-                        </figure>
-                        <div class="card-body">
-                            <h2 class="card-title">Blouson aviateur</h2>
-                            <div class="rating rating-sm">
-                                <input type="radio" class="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" class="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" class="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" class="mask mask-star-2 bg-orange-400" checked />
-                                <input type="radio" class="mask mask-star-2 bg-gray-300" />
-                            </div>
-                            <p class="text-sm text-gray-500">(38 avis)</p>
-                            <p class="text-2xl font-bold text-primary">149,99€</p>
-                            <button class="btn btn-primary btn-block">Ajouter au panier</button>
-                        </div>
-                    </div>
                 </div>
+                </div>
+
+                <!-- Removed duplicate chino card -->
 
                 <!-- Pagination -->
                 <div class="flex justify-center mt-8">

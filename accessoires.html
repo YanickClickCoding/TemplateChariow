@@ -151,9 +151,25 @@
         </div>
     </div>
 
+    <!-- Quick Navigation -->
+    <div class="bg-base-200 py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#sacs" class="btn btn-outline btn-sm">Sacs & Maroquinerie</a>
+                <a href="#chaussures" class="btn btn-outline btn-sm">Chaussures</a>
+                <a href="#bijoux" class="btn btn-outline btn-sm">Bijoux & Montres</a>
+                <a href="#lunettes" class="btn btn-outline btn-sm">Lunettes</a>
+                <a href="#echarpes" class="btn btn-outline btn-sm">Écharpes & Foulards</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Products Section -->
     <div class="container mx-auto px-4 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Section Sacs -->
+        <div id="sacs" class="mb-12 scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-6">Sacs & Maroquinerie</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
                 <figure class="relative h-64">
                     <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400&h=300&fit=crop" alt="Sac à main cuir" class="w-full h-full object-cover" />
@@ -176,6 +192,13 @@
                     <button class="btn btn-primary btn-block">Ajouter au panier</button>
                 </div>
             </div>
+        </div>
+        </div>
+
+        <!-- Section Bijoux -->
+        <div id="bijoux" class="mb-12 scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-6">Bijoux & Montres</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
             <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
                 <figure class="relative h-64">
@@ -196,6 +219,13 @@
                     <button class="btn btn-primary btn-block">Ajouter au panier</button>
                 </div>
             </div>
+        </div>
+        </div>
+
+        <!-- Section Lunettes -->
+        <div id="lunettes" class="mb-12 scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-6">Lunettes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
             <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
                 <figure class="relative h-64">
@@ -219,6 +249,13 @@
                     <button class="btn btn-primary btn-block">Ajouter au panier</button>
                 </div>
             </div>
+        </div>
+        </div>
+
+        <!-- Section Écharpes -->
+        <div id="echarpes" class="mb-12 scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-6">Écharpes & Foulards</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
             <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
                 <figure class="relative h-64">
@@ -237,6 +274,16 @@
                     <p class="text-2xl font-bold text-primary">39,99€</p>
                     <button class="btn btn-primary btn-block">Ajouter au panier</button>
                 </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Section Chaussures (placeholder) -->
+        <div id="chaussures" class="mb-12 scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-6">Chaussures</h2>
+            <div class="alert alert-info">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span>Collection de chaussures à venir prochainement !</span>
             </div>
         </div>
     </div>
