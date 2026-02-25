@@ -8,8 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <!-- Header global -->
-    <!-- Navbar -->
+    
+    
 <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50">
     <div class="navbar-start">
         <div class="dropdown">
@@ -137,13 +137,11 @@
     </div>
 </div>
 
-
-
-    <!-- Contenu de la page -->
+    
     <main>
 </div>
 
-    <!-- Page Header -->
+    
     <div class="bg-gradient-to-r from-pink-400 to-rose-500 py-12">
         <div class="container mx-auto px-4 text-center text-white">
             <h1 class="text-5xl font-bold mb-2">Mode Femme</h1>
@@ -151,30 +149,86 @@
         </div>
     </div>
 
-    <!-- Quick Navigation -->
-    <div class="bg-base-200 py-4">
+    
+    <div class="bg-base-200 py-8">
         <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#robes" class="btn btn-outline btn-sm">Robes</a>
-                <a href="#hauts" class="btn btn-outline btn-sm">Hauts & Chemisiers</a>
-                <a href="#pantalons" class="btn btn-outline btn-sm">Pantalons & Jeans</a>
-                <a href="#jupes" class="btn btn-outline btn-sm">Jupes</a>
-                <a href="#vestes" class="btn btn-outline btn-sm">Vestes & Manteaux</a>
+            <h2 class="text-2xl font-bold text-center mb-6">Nos Catégories</h2>
+            <div class="carousel carousel-center rounded-box w-full space-x-4 p-4" style="overflow-x: auto; scroll-behavior: smooth;">
+                <div class="carousel-item">
+                    <a href="#robes" class="card w-72 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                        <figure class="h-64">
+                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=300&fit=crop" alt="Robes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        </figure>
+                        <div class="card-body absolute bottom-0 text-white">
+                            <h3 class="card-title text-2xl">Robes</h3>
+                            <p>Collection élégante</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#hauts" class="card w-72 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                        <figure class="h-64">
+                            <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=400&h=300&fit=crop" alt="Hauts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        </figure>
+                        <div class="card-body absolute bottom-0 text-white">
+                            <h3 class="card-title text-2xl">Hauts & Chemisiers</h3>
+                            <p>Style moderne</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#pantalons" class="card w-72 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                        <figure class="h-64">
+                            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&h=300&fit=crop" alt="Pantalons" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        </figure>
+                        <div class="card-body absolute bottom-0 text-white">
+                            <h3 class="card-title text-2xl">Pantalons & Jeans</h3>
+                            <p>Confort & style</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#jupes" class="card w-72 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                        <figure class="h-64">
+                            <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400&h=300&fit=crop" alt="Jupes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        </figure>
+                        <div class="card-body absolute bottom-0 text-white">
+                            <h3 class="card-title text-2xl">Jupes</h3>
+                            <p>Féminité & élégance</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#vestes" class="card w-72 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                        <figure class="h-64">
+                            <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=400&h=300&fit=crop" alt="Vestes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        </figure>
+                        <div class="card-body absolute bottom-0 text-white">
+                            <h3 class="card-title text-2xl">Vestes & Manteaux</h3>
+                            <p>Protection & style</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Filters & Products -->
+    
     <div class="container mx-auto px-4 py-12">
         <div class="flex flex-col lg:flex-row gap-8">
-            <!-- Sidebar Filters -->
+            
             <div class="lg:w-64 flex-shrink-0">
                 <div class="card bg-base-100 shadow-xl sticky top-24">
                     <div class="card-body">
                         <h2 class="card-title">Filtrer par</h2>
                         <div class="divider"></div>
                         
-                        <!-- Category Filter -->
+                        
                         <div class="form-control">
                             <label class="label cursor-pointer">
                                 <span class="label-text">Robes (45)</span>
@@ -200,7 +254,7 @@
 
                         <div class="divider"></div>
 
-                        <!-- Size Filter -->
+                        
                         <h3 class="font-bold">Taille</h3>
                         <div class="form-control">
                             <label class="label cursor-pointer">
@@ -227,7 +281,7 @@
 
                         <div class="divider"></div>
 
-                        <!-- Price Filter -->
+                        
                         <h3 class="font-bold">Prix</h3>
                         <div class="form-control">
                             <label class="label cursor-pointer">
@@ -251,9 +305,9 @@
                 </div>
             </div>
 
-            <!-- Products Grid -->
+            
             <div class="flex-1">
-                <!-- Sort Bar -->
+                
                 <div class="flex justify-between items-center mb-6 bg-base-100 p-4 rounded-lg shadow">
                     <p class="text-lg font-semibold">197 produits trouvés</p>
                     <select class="select select-bordered">
@@ -265,7 +319,7 @@
                     </select>
                 </div>
 
-                <!-- Section Robes -->
+                
                 <div id="robes" class="mb-12 scroll-mt-24">
                     <h2 class="text-3xl font-bold mb-6">Robes</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -294,7 +348,7 @@
                 </div>
                 </div>
 
-                <!-- Section Hauts -->
+                
                 <div id="hauts" class="mb-12 scroll-mt-24">
                     <h2 class="text-3xl font-bold mb-6">Hauts & Chemisiers</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -323,7 +377,7 @@
                 </div>
                 </div>
 
-                <!-- Section Pantalons -->
+                
                 <div id="pantalons" class="mb-12 scroll-mt-24">
                     <h2 class="text-3xl font-bold mb-6">Pantalons & Jeans</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -351,7 +405,7 @@
                 </div>
                 </div>
 
-                <!-- Section Vestes -->
+                
                 <div id="vestes" class="mb-12 scroll-mt-24">
                     <h2 class="text-3xl font-bold mb-6">Vestes & Manteaux</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -402,7 +456,7 @@
                 </div>
                 </div>
 
-                <!-- Section Jupes -->
+                
                 <div id="jupes" class="mb-12 scroll-mt-24">
                     <h2 class="text-3xl font-bold mb-6">Jupes</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -431,7 +485,7 @@
                 </div>
                 </div>
 
-                <!-- Pagination -->
+                
                 <div class="flex justify-center mt-12">
                     <div class="join">
                         <button class="join-item btn">«</button>
@@ -447,8 +501,8 @@
     </div>
     </main>
 
-    <!-- Footer global -->
-    <!-- Footer -->
+    
+    
 <footer class="footer p-10 bg-base-200 text-base-content">
     <nav>
         <header class="footer-title">À propos</header>
@@ -488,9 +542,7 @@
     </aside>
 </footer>
 
-
-
-    <!-- JavaScript global -->
+    
     <script src="app.js"></script>
 </body>
 </html>

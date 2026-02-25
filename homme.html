@@ -8,8 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <!-- Header global -->
-    <!-- Navbar -->
+    
+    
 <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50">
     <div class="navbar-start">
         <div class="dropdown">
@@ -137,13 +137,11 @@
     </div>
 </div>
 
-
-
-    <!-- Contenu de la page -->
+    
     <main>
 </div>
 
-    <!-- Page Header -->
+    
     <div class="bg-gradient-to-r from-blue-400 to-cyan-500 py-12">
         <div class="container mx-auto px-4 text-center text-white">
             <h1 class="text-5xl font-bold mb-2">Mode Homme</h1>
@@ -151,30 +149,86 @@
         </div>
     </div>
 
-    <!-- Quick Navigation -->
-    <div class="bg-base-200 py-4">
+    
+    <div class="bg-base-200 py-8">
         <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#chemises" class="btn btn-outline btn-sm">Chemises</a>
-                <a href="#t-shirts" class="btn btn-outline btn-sm">T-shirts & Polos</a>
-                <a href="#pantalons" class="btn btn-outline btn-sm">Pantalons & Jeans</a>
-                <a href="#vestes" class="btn btn-outline btn-sm">Vestes & Blousons</a>
-                <a href="#pulls" class="btn btn-outline btn-sm">Pulls & Sweats</a>
+            <h2 class="text-2xl font-bold text-center mb-6">Nos Catégories</h2>
+            <div class="carousel carousel-center rounded-box w-full space-x-4 p-4" style="overflow-x: auto; scroll-behavior: smooth;">
+                <div class="carousel-item">
+                    <a href="#chemises" class="card w-72 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                        <figure class="h-64">
+                            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=300&fit=crop" alt="Chemises" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        </figure>
+                        <div class="card-body absolute bottom-0 text-white">
+                            <h3 class="card-title text-2xl">Chemises</h3>
+                            <p>Style moderne</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#t-shirts" class="card w-72 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                        <figure class="h-64">
+                            <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&h=300&fit=crop" alt="T-shirts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        </figure>
+                        <div class="card-body absolute bottom-0 text-white">
+                            <h3 class="card-title text-2xl">T-shirts & Polos</h3>
+                            <p>Confort quotidien</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#pantalons" class="card w-72 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                        <figure class="h-64">
+                            <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=300&fit=crop" alt="Pantalons" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        </figure>
+                        <div class="card-body absolute bottom-0 text-white">
+                            <h3 class="card-title text-2xl">Pantalons & Jeans</h3>
+                            <p>Style décontracté</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#vestes" class="card w-72 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                        <figure class="h-64">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=300&fit=crop" alt="Vestes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        </figure>
+                        <div class="card-body absolute bottom-0 text-white">
+                            <h3 class="card-title text-2xl">Vestes & Blousons</h3>
+                            <p>Protection & élégance</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#pulls" class="card w-72 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                        <figure class="h-64">
+                            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&h=300&fit=crop" alt="Pulls" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        </figure>
+                        <div class="card-body absolute bottom-0 text-white">
+                            <h3 class="card-title text-2xl">Pulls & Sweats</h3>
+                            <p>Chaleur & confort</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Products Section -->
+    
     <div class="container mx-auto px-4 py-12">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <!-- Filters Sidebar -->
+            
             <div class="lg:col-span-1">
                 <div class="card bg-base-100 shadow-xl sticky top-24">
                     <div class="card-body">
                         <h2 class="card-title">Filtrer par</h2>
                         <div class="divider"></div>
                         
-                        <!-- Category Filter -->
+                        
                         <div class="form-control">
                             <h3 class="font-bold mb-2">Catégorie</h3>
                             <label class="label cursor-pointer justify-start gap-2">
@@ -201,7 +255,7 @@
                         
                         <div class="divider"></div>
                         
-                        <!-- Size Filter -->
+                        
                         <div class="form-control">
                             <h3 class="font-bold mb-2">Taille</h3>
                             <label class="label cursor-pointer justify-start gap-2">
@@ -228,7 +282,7 @@
                         
                         <div class="divider"></div>
                         
-                        <!-- Price Filter -->
+                        
                         <div class="form-control">
                             <h3 class="font-bold mb-2">Prix</h3>
                             <label class="label cursor-pointer justify-start gap-2">
@@ -252,9 +306,9 @@
                 </div>
             </div>
 
-            <!-- Products Grid -->
+            
             <div class="lg:col-span-3">
-                <!-- Products Header -->
+                
                 <div class="flex justify-between items-center mb-6">
                     <p class="text-lg">156 produits trouvés</p>
                     <select class="select select-bordered">
@@ -266,7 +320,7 @@
                     </select>
                 </div>
 
-                <!-- Section Chemises -->
+                
                 <div id="chemises" class="mb-12 scroll-mt-24">
                     <h2 class="text-3xl font-bold mb-6">Chemises</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -292,7 +346,7 @@
                 </div>
                 </div>
 
-                <!-- Section Pantalons -->
+                
                 <div id="pantalons" class="mb-12 scroll-mt-24">
                     <h2 class="text-3xl font-bold mb-6">Pantalons & Jeans</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -345,7 +399,7 @@
                 </div>
                 </div>
 
-                <!-- Section Vestes -->
+                
                 <div id="vestes" class="mb-12 scroll-mt-24">
                     <h2 class="text-3xl font-bold mb-6">Vestes & Blousons</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -390,7 +444,7 @@
                 </div>
                 </div>
 
-                <!-- Section T-shirts -->
+                
                 <div id="t-shirts" class="mb-12 scroll-mt-24">
                     <h2 class="text-3xl font-bold mb-6">T-shirts & Polos</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -417,7 +471,7 @@
                 </div>
                 </div>
 
-                <!-- Section Pulls -->
+                
                 <div id="pulls" class="mb-12 scroll-mt-24">
                     <h2 class="text-3xl font-bold mb-6">Pulls & Sweats</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -466,9 +520,9 @@
                 </div>
                 </div>
 
-                <!-- Removed duplicate chino card -->
+                
 
-                <!-- Pagination -->
+                
                 <div class="flex justify-center mt-8">
                     <div class="join">
                         <button class="join-item btn btn-active">1</button>
@@ -482,8 +536,8 @@
     </div>
     </main>
 
-    <!-- Footer global -->
-    <!-- Footer -->
+    
+    
 <footer class="footer p-10 bg-base-200 text-base-content">
     <nav>
         <header class="footer-title">À propos</header>
@@ -523,9 +577,7 @@
     </aside>
 </footer>
 
-
-
-    <!-- JavaScript global -->
+    
     <script src="app.js"></script>
 </body>
 </html>

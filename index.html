@@ -8,8 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <!-- Header global -->
-    <!-- Navbar -->
+    
+    
 <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50">
     <div class="navbar-start">
         <div class="dropdown">
@@ -137,9 +137,9 @@
     </div>
 </div>
 
-    <!-- Contenu de la page -->
+    
     <main>
-        <!-- Hero -->
+        
         <div class="hero min-h-[500px] relative">
             <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1920&h=600&fit=crop" alt="Collection Printemps 2024" class="absolute inset-0 w-full h-full object-cover" />
             <div class="hero-overlay bg-opacity-60 bg-gradient-to-r from-primary to-secondary"></div>
@@ -152,38 +152,64 @@
             </div>
         </div>
 
-        <!-- Catégories -->
-        <div class="container mx-auto px-4 py-16">
-            <h2 class="text-4xl font-bold text-center mb-12">Nos Catégories</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <a href="femme.html" class="card bg-gradient-to-br from-pink-400 to-rose-500 shadow-xl hover:scale-105 transition-transform">
-                    <div class="card-body items-center text-center text-white">
-                        <h2 class="card-title text-3xl">Femme</h2>
-                        <p>Collection élégante</p>
+        
+        <div class="bg-base-200 py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12">Nos Catégories</h2>
+                <div class="carousel carousel-center rounded-box w-full space-x-4 p-4" style="overflow-x: auto; scroll-behavior: smooth;">
+                    <div class="carousel-item">
+                        <a href="femme.html" class="card w-72 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                            <figure class="h-64">
+                                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&h=300&fit=crop" alt="Femme" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-pink-500/80 to-transparent"></div>
+                            </figure>
+                            <div class="card-body absolute bottom-0 text-white">
+                                <h3 class="card-title text-2xl">Femme</h3>
+                                <p>Collection élégante</p>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="homme.html" class="card bg-gradient-to-br from-blue-400 to-cyan-500 shadow-xl hover:scale-105 transition-transform">
-                    <div class="card-body items-center text-center text-white">
-                        <h2 class="card-title text-3xl">Homme</h2>
-                        <p>Style moderne</p>
+                    <div class="carousel-item">
+                        <a href="homme.html" class="card w-72 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                            <figure class="h-64">
+                                <img src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=400&h=300&fit=crop" alt="Homme" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-blue-500/80 to-transparent"></div>
+                            </figure>
+                            <div class="card-body absolute bottom-0 text-white">
+                                <h3 class="card-title text-2xl">Homme</h3>
+                                <p>Style moderne</p>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="enfants.html" class="card bg-gradient-to-br from-green-400 to-teal-500 shadow-xl hover:scale-105 transition-transform">
-                    <div class="card-body items-center text-center text-white">
-                        <h2 class="card-title text-3xl">Enfants</h2>
-                        <p>Confort & fun</p>
+                    <div class="carousel-item">
+                        <a href="enfants.html" class="card w-72 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                            <figure class="h-64">
+                                <img src="https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=400&h=300&fit=crop" alt="Enfants" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-green-500/80 to-transparent"></div>
+                            </figure>
+                            <div class="card-body absolute bottom-0 text-white">
+                                <h3 class="card-title text-2xl">Enfants</h3>
+                                <p>Confort & fun</p>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="accessoires.html" class="card bg-gradient-to-br from-yellow-400 to-orange-500 shadow-xl hover:scale-105 transition-transform">
-                    <div class="card-body items-center text-center text-white">
-                        <h2 class="card-title text-3xl">Accessoires</h2>
-                        <p>Complétez votre look</p>
+                    <div class="carousel-item">
+                        <a href="accessoires.html" class="card w-72 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+                            <figure class="h-64">
+                                <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=400&h=300&fit=crop" alt="Accessoires" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-orange-500/80 to-transparent"></div>
+                            </figure>
+                            <div class="card-body absolute bottom-0 text-white">
+                                <h3 class="card-title text-2xl">Accessoires</h3>
+                                <p>Complétez votre look</p>
+                            </div>
+                        </a>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
 
-        <!-- Produits en vedette -->
+        
         <div class="bg-base-200 py-16">
             <div class="container mx-auto px-4">
                 <h2 class="text-4xl font-bold text-center mb-12">Produits en Vedette</h2>
@@ -383,14 +409,14 @@
             </div>
         </div>
 
-        <!-- Newsletter -->
+        
         <div class="bg-gradient-to-r from-primary to-secondary py-16">
             <div class="container mx-auto px-4 text-center text-white">
                 <h2 class="text-4xl font-bold mb-4">Inscrivez-vous à notre newsletter</h2>
                 <p class="text-xl mb-8">Recevez nos offres exclusives et les dernières nouveautés</p>
                 <div class="flex justify-center">
                     <div class="join">
-                        <input class="input input-bordered join-item w-64" placeholder="Votre email"/>
+                        <input class="input input-bordered join-item w-64 text-black" placeholder="Votre email"/>
                         <button class="btn btn-accent join-item">S'inscrire</button>
                     </div>
                 </div>
@@ -398,8 +424,8 @@
         </div>
     </main>
 
-    <!-- Footer global -->
-    <!-- Footer -->
+    
+    
 <footer class="footer p-10 bg-base-200 text-base-content">
     <nav>
         <header class="footer-title">À propos</header>
@@ -439,7 +465,7 @@
     </aside>
 </footer>
 
-    <!-- JavaScript global -->
+    
     <script src="app.js"></script>
 </body>
 </html>
