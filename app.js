@@ -37,20 +37,37 @@ function initializeMenus() {
     
     menuItems.forEach(item => {
         const details = item.querySelector('details');
+        const submenu = details.querySelector('ul');
+        let closeTimeout;
         
-        // Ouvrir au survol
-        item.addEventListener('mouseenter', function() {
-            if (window.innerWidth >= 1024) { // lg breakpoint
+        // Fonction pour ouvrir le menu
+        const openMenu = () => {
+            if (window.innerWidth >= 1024) {
+                clearTimeout(closeTimeout);
                 details.setAttribute('open', '');
             }
-        });
+        };
         
-        // Fermer quand on quitte
-        item.addEventListener('mouseleave', function() {
+        // Fonction pour fermer le menu avec délai
+        const closeMenu = () => {
             if (window.innerWidth >= 1024) {
-                details.removeAttribute('open');
+                closeTimeout = setTimeout(() => {
+                    details.removeAttribute('open');
+                }, 200); // Délai de 200ms avant fermeture
             }
-        });
+        };
+        
+        // Ouvrir au survol du parent
+        item.addEventListener('mouseenter', openMenu);
+        
+        // Fermer quand on quitte le parent
+        item.addEventListener('mouseleave', closeMenu);
+        
+        // Garder ouvert quand on survole le sous-menu
+        if (submenu) {
+            submenu.addEventListener('mouseenter', openMenu);
+            submenu.addEventListener('mouseleave', closeMenu);
+        }
     });
 
     // Animation smooth scroll pour les ancres
