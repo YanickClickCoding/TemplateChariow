@@ -4,31 +4,13 @@
 
 ### 1. Créer le dépôt sur GitHub
 
-1. Allez sur https://github.com/YanickClickCoding
-2. Cliquez sur le bouton **"New"** (ou **"+"** > **"New repository"**)
-3. Remplissez les informations :
-   - **Repository name** : `Template`
-   - **Description** : "Template e-commerce moderne avec DaisyUI et Tailwind CSS"
-   - **Visibility** : Public ou Private (selon votre choix)
-   - ⚠️ **NE PAS** cocher "Add a README file"
-   - ⚠️ **NE PAS** ajouter .gitignore
-   - ⚠️ **NE PAS** choisir de licence
-4. Cliquez sur **"Create repository"**
+✅ **Dépôt déjà créé !** 
+- URL : https://github.com/YanickClickCoding/TemplateChariow
+- Les branches `master` et `modifications` ont été poussées avec succès
 
-### 2. Pousser le code local vers GitHub
+### 2. ~~Pousser le code local vers GitHub~~
 
-Une fois le dépôt créé sur GitHub, exécutez ces commandes dans votre terminal :
-
-```bash
-# Vérifier que vous êtes sur la branche master
-git checkout master
-
-# Pousser la branche master
-git push -u origin master
-
-# Pousser la branche modifications
-git push -u origin modifications
-```
+✅ **Déjà fait !** Les deux branches sont maintenant sur GitHub.
 
 ### 3. Définir la branche par défaut (optionnel)
 
@@ -114,18 +96,23 @@ git branch -d nom-de-la-branche
 ## ✅ État actuel de votre projet
 
 - ✅ Git initialisé
-- ✅ Branche `master` créée avec le commit initial
-- ✅ Branche `modifications` créée
+- ✅ Branche `master` créée et poussée sur GitHub
+- ✅ Branche `modifications` créée et poussée sur GitHub
 - ✅ Remote `origin` configuré vers GitHub
-- ⏳ En attente : Création du dépôt sur GitHub
-- ⏳ En attente : Push des branches vers GitHub
+- ✅ Dépôt GitHub créé : https://github.com/YanickClickCoding/TemplateChariow
+- ✅ Vous êtes sur la branche `modifications` - prêt à travailler !
 
-## 🎯 Prochaines étapes
+## 🎯 Vous pouvez maintenant commencer à travailler !
 
-1. Créer le dépôt sur GitHub (voir étape 1 ci-dessus)
-2. Pousser les branches (voir étape 2 ci-dessus)
-3. Commencer à travailler sur la branche `modifications`
+Vous êtes sur la branche `modifications`. Faites vos modifications et commitez-les :
 
----
+```bash
+# Faire vos modifications...
 
-**Note** : Vous êtes actuellement sur la branche `modifications`. C'est parfait pour commencer à travailler !
+# Ajouter et commiter
+git add .
+git commit -m "Description de vos modifications"
+
+# Pousser sur GitHub
+git push origin modifications
+```
