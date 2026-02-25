@@ -1,0 +1,27 @@
+# Fichiers de backup
+*.backup
+*backup*
+
+# Dossier complete page (si c'est une copie)
+complete page/
+
+# Scripts PowerShell temporaires (optionnel)
+fix-*.ps1
+cleanup-*.ps1
+remove-*.ps1
+apply-*.ps1
+
+# Fichiers Python temporaires
+*.py
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Fichiers temporaires
+*.tmp
+*.temp
