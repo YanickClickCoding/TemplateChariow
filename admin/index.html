@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - ShopStyle</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="drawer lg:drawer-open">
+        <input id="admin-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col">
+            <!-- Header -->
+            <div class="navbar bg-base-100 shadow-lg">
+                <div class="flex-none lg:hidden">
+                    <label for="admin-drawer" class="btn btn-square btn-ghost">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </label>
+                </div>
+                <div class="flex-1">
+                    <h1 class="text-xl font-bold ml-4">Tableau de bord</h1>
+                </div>
+                <div class="flex-none gap-2">
+                    <div class="dropdown dropdown-end">
+                        <label tabindex="0" class="btn btn-ghost btn-circle avatar placeholder">
+                            <div class="bg-primary text-primary-content rounded-full w-10">
+                                <span class="text-xl">A</span>
+                            </div>
+                        </label>
+                        <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                            <li><a id="logoutBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 stroke-current">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                                </svg>
+                                Déconnexion
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <main class="p-6 bg-base-200 min-h-screen">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="stats shadow">
+                        <div class="stat">
+                            <div class="stat-figure text-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-title">Revenus totaux</div>
+                            <div class="stat-value text-primary" id="totalRevenue">0.00 €</div>
+                            <div class="stat-desc">+12% ce mois</div>
+                        </div>
+                    </div>
+
+                    <div class="stats shadow">
+                        <div class="stat">
+                            <div class="stat-figure text-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-title">Commandes</div>
+                            <div class="stat-value text-secondary" id="totalOrders">0</div>
+                            <div class="stat-desc">+8% ce mois</div>
+                        </div>
+                    </div>
+
+                    <div class="stats shadow">
+                        <div class="stat">
+                            <div class="stat-figure text-accent">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-title">Clients</div>
+                            <div class="stat-value text-accent" id="totalCustomers">0</div>
+                            <div class="stat-desc">+15% ce mois</div>
+                        </div>
+                    </div>
+
+                    <div class="stats shadow">
+                        <div class="stat">
+                            <div class="stat-figure text-info">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-title">Produits</div>
+                            <div class="stat-value text-info" id="totalProducts">0</div>
+                            <div class="stat-desc">En stock</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Revenue Chart -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title">Vue d'ensemble</h2>
+                            <div class="flex justify-center items-center p-1">
+                                <canvas id="revenueChart" width="200" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title">Statistiques détaillées</h2>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm">Commandes en attente</span>
+                                    <span class="badge badge-warning" id="pendingOrders">0</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm">Commandes en cours</span>
+                                    <span class="badge badge-info" id="processingOrders">0</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm">Commandes expédiées</span>
+                                    <span class="badge badge-primary" id="shippedOrders">0</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm">Commandes livrées</span>
+                                    <span class="badge badge-success" id="deliveredOrders">0</span>
+                                </div>
+                                <div class="divider"></div>
+                                <div class="flex justify-between items-center font-bold">
+                                    <span>Panier moyen</span>
+                                    <span class="text-primary" id="averageOrder">0.00 €</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Orders -->
+                <div class="card bg-base-100 shadow-xl mb-8">
+                    <div class="card-body">
+                        <h2 class="card-title">Commandes récentes</h2>
+                        <div class="overflow-x-auto">
+                            <table class="table table-zebra">
+                                <thead>
+                                    <tr>
+                                        <th>N° Commande</th>
+                                        <th>Client</th>
+                                        <th>Date</th>
+                                        <th>Total</th>
+                                        <th>Statut</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentOrdersTable">
+                                    <tr>
+                                        <td colspan="5" class="text-center text-gray-500">Aucune commande</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="products.html" class="card bg-primary text-primary-content shadow-xl hover:shadow-2xl transition-shadow">
+                        <div class="card-body items-center text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-16 h-16 stroke-current mb-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                            </svg>
+                            <h2 class="card-title">Gérer les produits</h2>
+                            <p>Ajouter, modifier ou supprimer des produits</p>
+                        </div>
+                    </a>
+
+                    <a href="orders.html" class="card bg-secondary text-secondary-content shadow-xl hover:shadow-2xl transition-shadow">
+                        <div class="card-body items-center text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-16 h-16 stroke-current mb-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            <h2 class="card-title">Gérer les commandes</h2>
+                            <p>Suivre et traiter les commandes</p>
+                        </div>
+                    </a>
+
+                    <a href="customers.html" class="card bg-accent text-accent-content shadow-xl hover:shadow-2xl transition-shadow">
+                        <div class="card-body items-center text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-16 h-16 stroke-current mb-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            <h2 class="card-title">Gérer les clients</h2>
+                            <p>Consulter les informations clients</p>
+                        </div>
+                    </a>
+                </div>
+            </main>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="drawer-side">
+            <label for="admin-drawer" class="drawer-overlay"></label>
+            <aside class="bg-base-100 w-64 min-h-screen">
+                <div class="p-4 text-center border-b">
+                    <h2 class="text-2xl font-bold text-primary">ShopStyle</h2>
+                    <p class="text-sm text-gray-500">Administration</p>
+                </div>
+                <ul class="menu p-4 text-base-content">
+                    <li><a href="index.html" class="active">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-5 h-5 stroke-current">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                        Tableau de bord
+                    </a></li>
+                    <li><a href="products.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-5 h-5 stroke-current">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                        Produits
+                    </a></li>
+                    <li><a href="orders.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-5 h-5 stroke-current">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        Commandes
+                    </a></li>
+                    <li><a href="customers.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-5 h-5 stroke-current">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        Clients
+                    </a></li>
+                    <li class="mt-auto"><a id="sidebarLogout" class="text-error">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-5 h-5 stroke-current">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                        </svg>
+                        Déconnexion
+                    </a></li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+    <script>
+        // Vérifier l'authentification
+        checkAuth();
+
+        // Attendre que Chart.js soit chargé avant de charger les stats
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                loadDashboardStats();
+            }, 100);
+        });
+
+        // Gestion de la déconnexion
+        document.getElementById('logoutBtn').addEventListener('click', logout);
+        document.getElementById('sidebarLogout').addEventListener('click', logout);
+
+        let revenueChart = null;
+
+        function loadDashboardStats() {
+            // Charger les données depuis LocalStorage
+            const products = JSON.parse(localStorage.getItem('shopstyle_products') || '[]');
+            const orders = JSON.parse(localStorage.getItem('shopstyle_orders') || '[]');
+            const customers = JSON.parse(localStorage.getItem('shopstyle_customers') || '[]');
+
+            // Calculer les statistiques
+            const totalRevenue = orders.reduce((sum, order) => sum + (order.total || 0), 0);
+            
+            // Afficher les statistiques
+            document.getElementById('totalRevenue').textContent = totalRevenue.toFixed(2) + ' €';
+            document.getElementById('totalOrders').textContent = orders.length;
+            document.getElementById('totalCustomers').textContent = customers.length;
+            document.getElementById('totalProducts').textContent = products.length;
+
+            // Calculer les statistiques par statut
+            const statusCounts = {
+                pending: 0,
+                processing: 0,
+                shipped: 0,
+                delivered: 0
+            };
+
+            orders.forEach(order => {
+                if (statusCounts.hasOwnProperty(order.status)) {
+                    statusCounts[order.status]++;
+                }
+            });
+
+            document.getElementById('pendingOrders').textContent = statusCounts.pending;
+            document.getElementById('processingOrders').textContent = statusCounts.processing;
+            document.getElementById('shippedOrders').textContent = statusCounts.shipped;
+            document.getElementById('deliveredOrders').textContent = statusCounts.delivered;
+
+            // Calculer le panier moyen
+            const averageOrder = orders.length > 0 ? totalRevenue / orders.length : 0;
+            document.getElementById('averageOrder').textContent = averageOrder.toFixed(2) + ' €';
+
+            // Créer le graphique des revenus
+            createRevenueChart(orders);
+
+            // Afficher les commandes récentes
+            displayRecentOrders(orders.slice(0, 5));
+        }
+
+        function createRevenueChart(orders) {
+            const ctx = document.getElementById('revenueChart');
+            
+            if (!ctx) {
+                console.error('Canvas element not found');
+                return;
+            }
+
+            // Vérifier si Chart.js est chargé
+            if (typeof Chart === 'undefined') {
+                console.error('Chart.js is not loaded');
+                return;
+            }
+            
+            // Charger les données depuis LocalStorage
+            const products = JSON.parse(localStorage.getItem('shopstyle_products') || '[]');
+            const customers = JSON.parse(localStorage.getItem('shopstyle_customers') || '[]');
+            
+            // Calculer les statistiques
+            const totalRevenue = orders.reduce((sum, order) => sum + (order.total || 0), 0);
+            
+            // Préparer les données pour le graphique
+            const chartData = {
+                labels: ['Revenus', 'Commandes', 'Clients', 'Produits'],
+                values: [
+                    totalRevenue,
+                    orders.length,
+                    customers.length,
+                    products.length
+                ]
+            };
+            
+            console.log('Chart data:', chartData);
+            
+            // Détruire le graphique existant s'il existe
+            if (revenueChart) {
+                revenueChart.destroy();
+            }
+
+            // Créer le graphique en donut
+            revenueChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: chartData.labels,
+                    datasets: [{
+                        label: 'Statistiques',
+                        data: chartData.values,
+                        backgroundColor: [
+                            'rgba(139, 92, 246, 0.8)',   // Violet (Revenus)
+                            'rgba(236, 72, 153, 0.8)',   // Rose (Commandes)
+                            'rgba(34, 197, 94, 0.8)',    // Vert (Clients)
+                            'rgba(59, 130, 246, 0.8)',   // Bleu (Produits)
+                        ],
+                        borderColor: [
+                            'rgba(139, 92, 246, 1)',
+                            'rgba(236, 72, 153, 1)',
+                            'rgba(34, 197, 94, 1)',
+                            'rgba(59, 130, 246, 1)',
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 15,
+                                font: {
+                                    size: 12
+                                },
+                                color: '#000'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.parsed || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
+                                    
+                                    // Formater différemment selon le type de donnée
+                                    if (label === 'Revenus') {
+                                        return `${label}: ${value.toFixed(2)} € (${percentage}%)`;
+                                    } else {
+                                        return `${label}: ${Math.round(value)} (${percentage}%)`;
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+            
+            console.log('Chart created successfully');
+        }
+
+        function displayRecentOrders(orders) {
+            const tbody = document.getElementById('recentOrdersTable');
+            
+            if (orders.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center text-gray-500">Aucune commande</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = orders.map(order => `
+                <tr>
+                    <td>#${order.id}</td>
+                    <td>${order.customerName}</td>
+                    <td>${new Date(order.date).toLocaleDateString('fr-FR')}</td>
+                    <td>${order.total.toFixed(2)}€</td>
+                    <td><span class="badge badge-${getStatusColor(order.status)}">${order.status}</span></td>
+                </tr>
+            `).join('');
+        }
+
+        function getStatusColor(status) {
+            const colors = {
+                'pending': 'warning',
+                'processing': 'info',
+                'shipped': 'primary',
+                'delivered': 'success',
+                'cancelled': 'error'
+            };
+            return colors[status] || 'ghost';
+        }
+    </script>
+</body>
+</html>
