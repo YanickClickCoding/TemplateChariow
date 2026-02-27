@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion Admin - ShopStyle</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-base-200">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="card w-full max-w-md bg-base-100 shadow-xl">
+            <div class="card-body">
+                <div class="text-center mb-6">
+                    <h1 class="text-3xl font-bold text-primary">ShopStyle Admin</h1>
+                    <p class="text-gray-500 mt-2">Connectez-vous pour accéder au tableau de bord</p>
+                </div>
+
+                <form id="loginForm" class="space-y-4">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Nom d'utilisateur</span>
+                        </label>
+                        <input type="text" id="username" placeholder="admin" class="input input-bordered" required />
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Mot de passe</span>
+                        </label>
+                        <input type="password" id="password" placeholder="••••••••" class="input input-bordered" required />
+                    </div>
+
+                    <div id="errorMessage" class="alert alert-error hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span id="errorText">Identifiants incorrects</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Se connecter
+                    </button>
+                </form>
+
+                <div class="divider">Pas encore de compte ?</div>
+                <div class="text-center">
+                    <a href="signup.html" class="link link-primary">Créer un compte</a>
+                </div>
+
+                <div class="divider">Compte de test</div>
+                <div class="text-sm text-center text-gray-500">
+                    <p>Utilisateur : <code class="bg-base-200 px-2 py-1 rounded">admin</code></p>
+                    <p>Mot de passe : <code class="bg-base-200 px-2 py-1 rounded">admin123</code></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+    <script>
+        // Gestion de la connexion
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            
+            // Vérifier d'abord le compte par défaut
+            if (username === 'admin' && password === 'admin123') {
+                // Créer une session
+                localStorage.setItem('adminSession', JSON.stringify({
+                    username: username,
+                    email: 'admin@shopstyle.com',
+                    loginTime: new Date().toISOString()
+                }));
+                
+                // Rediriger vers le dashboard
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Vérifier les utilisateurs enregistrés
+            const users = JSON.parse(localStorage.getItem('adminUsers') || '[]');
+            const user = users.find(u => u.username === username && u.password === password);
+            
+            if (user) {
+                // Créer une session
+                localStorage.setItem('adminSession', JSON.stringify({
+                    username: user.username,
+                    email: user.email,
+                    loginTime: new Date().toISOString()
+                }));
+                
+                // Rediriger vers le dashboard
+                window.location.href = 'index.html';
+            } else {
+                // Afficher l'erreur
+                errorText.textContent = 'Identifiants incorrects';
+                errorMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    errorMessage.classList.add('hidden');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

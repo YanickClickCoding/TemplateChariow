@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription Admin - ShopStyle</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-base-200">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="card w-full max-w-md bg-base-100 shadow-xl">
+            <div class="card-body">
+                <div class="text-center mb-6">
+                    <h1 class="text-3xl font-bold text-primary">ShopStyle Admin</h1>
+                    <p class="text-gray-500 mt-2">Créez votre compte administrateur</p>
+                </div>
+
+                <form id="signupForm" class="space-y-4">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Nom d'utilisateur</span>
+                        </label>
+                        <input type="text" id="username" placeholder="admin" class="input input-bordered" required minlength="3" />
+                        <label class="label">
+                            <span class="label-text-alt text-gray-500">Minimum 3 caractères</span>
+                        </label>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Email</span>
+                        </label>
+                        <input type="email" id="email" placeholder="admin@shopstyle.com" class="input input-bordered" required />
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Mot de passe</span>
+                        </label>
+                        <input type="password" id="password" placeholder="••••••••" class="input input-bordered" required minlength="6" />
+                        <label class="label">
+                            <span class="label-text-alt text-gray-500">Minimum 6 caractères</span>
+                        </label>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Confirmer le mot de passe</span>
+                        </label>
+                        <input type="password" id="confirmPassword" placeholder="••••••••" class="input input-bordered" required />
+                    </div>
+
+                    <div id="errorMessage" class="alert alert-error hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span id="errorText">Une erreur est survenue</span>
+                    </div>
+
+                    <div id="successMessage" class="alert alert-success hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Compte créé avec succès ! Redirection...</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Créer le compte
+                    </button>
+                </form>
+
+                <div class="divider">Déjà un compte ?</div>
+                <div class="text-center">
+                    <a href="login.html" class="link link-primary">Se connecter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+    <script>
+        // Gestion de l'inscription
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Validation
+            if (password !== confirmPassword) {
+                errorText.textContent = 'Les mots de passe ne correspondent pas';
+                errorMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    errorMessage.classList.add('hidden');
+                }, 3000);
+                return;
+            }
+
+            if (password.length < 6) {
+                errorText.textContent = 'Le mot de passe doit contenir au moins 6 caractères';
+                errorMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    errorMessage.classList.add('hidden');
+                }, 3000);
+                return;
+            }
+
+            // Récupérer les utilisateurs existants
+            let users = JSON.parse(localStorage.getItem('adminUsers') || '[]');
+            
+            // Vérifier si l'utilisateur existe déjà
+            if (users.some(user => user.username === username)) {
+                errorText.textContent = 'Ce nom d\'utilisateur existe déjà';
+                errorMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    errorMessage.classList.add('hidden');
+                }, 3000);
+                return;
+            }
+
+            if (users.some(user => user.email === email)) {
+                errorText.textContent = 'Cet email est déjà utilisé';
+                errorMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    errorMessage.classList.add('hidden');
+                }, 3000);
+                return;
+            }
+
+            // Ajouter le nouvel utilisateur
+            users.push({
+                username: username,
+                email: email,
+                password: password, // En production, utiliser un hash sécurisé
+                createdAt: new Date().toISOString()
+            });
+
+            localStorage.setItem('adminUsers', JSON.stringify(users));
+
+            // Afficher le message de succès
+            successMessage.classList.remove('hidden');
+            
+            // Rediriger vers la page de connexion après 2 secondes
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
